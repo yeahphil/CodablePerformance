@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A5F440D2D36FCE30017D4B2 /* ConcurrencyExtras in Frameworks */ = {isa = PBXBuildFile; productRef = 4A5F440C2D36FCE30017D4B2 /* ConcurrencyExtras */; };
+		4A5F44132D3707FE0017D4B2 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 4A5F44122D3707FE0017D4B2 /* AnyCodable */; };
 		F821C3BF208FCB5600F1F40A /* Airport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F821C3B5208FCB5600F1F40A /* Airport.framework */; };
 		F821C3C4208FCB5600F1F40A /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F821C3C3208FCB5600F1F40A /* PerformanceTests.swift */; };
 		F821C3D2208FCBCE00F1F40A /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F821C3D1208FCBCE00F1F40A /* Airport.swift */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5F44132D3707FE0017D4B2 /* AnyCodable in Frameworks */,
 				4A5F440D2D36FCE30017D4B2 /* ConcurrencyExtras in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +195,7 @@
 			mainGroup = F821C3AB208FCB5600F1F40A;
 			packageReferences = (
 				4A5F440B2D36FCE30017D4B2 /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */,
+				4A5F44112D3707FE0017D4B2 /* XCRemoteSwiftPackageReference "AnyCodable" */,
 			);
 			productRefGroup = F821C3B6208FCB5600F1F40A /* Products */;
 			projectDirPath = "";
@@ -515,6 +518,14 @@
 				minimumVersion = 1.3.1;
 			};
 		};
+		4A5F44112D3707FE0017D4B2 /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flight-School/AnyCodable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -522,6 +533,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A5F440B2D36FCE30017D4B2 /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */;
 			productName = ConcurrencyExtras;
+		};
+		4A5F44122D3707FE0017D4B2 /* AnyCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A5F44112D3707FE0017D4B2 /* XCRemoteSwiftPackageReference "AnyCodable" */;
+			productName = AnyCodable;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

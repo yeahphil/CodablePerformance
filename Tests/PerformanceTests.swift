@@ -1,6 +1,8 @@
 
 import XCTest
 import Foundation
+import AnyCodable
+
 @testable import Airport
 
 let count = 10000 // 1, 10, 100, 1000, or 10000
@@ -33,6 +35,13 @@ class PerformanceTests: XCTestCase {
     func testPerformanceJSONSerialization() {
         self.measure {
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
+            XCTAssertEqual(json.count, count)
+        }
+    }
+    
+    func testPerformanceJSONSerializationMappingToCodableType() {
+        self.measure {
+            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
             let airports = json.map{ Airport(json: $0) }
             XCTAssertEqual(airports.count, count)
         }
@@ -55,6 +64,18 @@ class PerformanceTests: XCTestCase {
             let decoder = AnyJSON.decoder
             let decodedJSON = try! decoder.decode(AnyJSON.self, from: data)
             let airports = try! decodedJSON.decode(as: [Airport].self)
+            XCTAssertEqual(airports.count, count)
+        }
+    }
+    
+    //
+    // MARK: - AnyCodable
+    //
+    
+    func testPerformanceAnyCodable() {
+        self.measure {
+            let decoder = AnyJSON.decoder
+            let airports = try! decoder.decode([AnyCodable].self, from: data)
             XCTAssertEqual(airports.count, count)
         }
     }
