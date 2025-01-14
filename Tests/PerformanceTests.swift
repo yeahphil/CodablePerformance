@@ -1,3 +1,4 @@
+
 import XCTest
 import Foundation
 @testable import Airport
@@ -13,6 +14,10 @@ class PerformanceTests: XCTestCase {
         ]
     }
     
+    //
+    // MARK: - Codable
+    //
+    
     func testPerformanceCodable() {
         self.measure {
             let decoder = JSONDecoder()
@@ -21,10 +26,35 @@ class PerformanceTests: XCTestCase {
         }
     }
     
-    func testPerformanceJSONSerialization() {        
+    //
+    // MARK: - JSONSerialization
+    //
+    
+    func testPerformanceJSONSerialization() {
         self.measure {
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
             let airports = json.map{ Airport(json: $0) }
+            XCTAssertEqual(airports.count, count)
+        }
+    }
+    
+    //
+    // MARK: - AnyJSON (from Supabase Realtime)
+    //
+    
+    func testPerformanceAnyJSON() {
+        self.measure {
+            let decoder = AnyJSON.decoder
+            let airports = try! decoder.decode(JSONArray.self, from: data)
+            XCTAssertEqual(airports.count, count)
+        }
+    }
+    
+    func testPerformanceAnyJSONWithCodable() {
+        self.measure {
+            let decoder = AnyJSON.decoder
+            let decodedJSON = try! decoder.decode(AnyJSON.self, from: data)
+            let airports = try! decodedJSON.decode(as: [Airport].self)
             XCTAssertEqual(airports.count, count)
         }
     }
