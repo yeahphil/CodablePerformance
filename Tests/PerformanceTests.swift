@@ -2,6 +2,7 @@
 import XCTest
 import Foundation
 import AnyCodable
+import ZippyJSON
 
 @testable import Airport
 
@@ -76,6 +77,18 @@ class PerformanceTests: XCTestCase {
         self.measure {
             let decoder = AnyJSON.decoder
             let airports = try! decoder.decode([AnyCodable].self, from: data)
+            XCTAssertEqual(airports.count, count)
+        }
+    }
+    
+    //
+    // MARK: - ZippyJSON
+    //
+    
+    func testZippyJSONDecoder() {
+        self.measure {
+            let decoder = ZippyJSONDecoder()
+            let airports = try! decoder.decode([Airport].self, from: data)
             XCTAssertEqual(airports.count, count)
         }
     }

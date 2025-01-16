@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A2A06F62D399E6800A2F135 /* ZippyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4A2A06F52D399E6800A2F135 /* ZippyJSON */; };
 		4A5F440D2D36FCE30017D4B2 /* ConcurrencyExtras in Frameworks */ = {isa = PBXBuildFile; productRef = 4A5F440C2D36FCE30017D4B2 /* ConcurrencyExtras */; };
 		4A5F44132D3707FE0017D4B2 /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = 4A5F44122D3707FE0017D4B2 /* AnyCodable */; };
 		F821C3BF208FCB5600F1F40A /* Airport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F821C3B5208FCB5600F1F40A /* Airport.framework */; };
@@ -56,6 +57,7 @@
 			files = (
 				4A5F44132D3707FE0017D4B2 /* AnyCodable in Frameworks */,
 				4A5F440D2D36FCE30017D4B2 /* ConcurrencyExtras in Frameworks */,
+				4A2A06F62D399E6800A2F135 /* ZippyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +198,7 @@
 			packageReferences = (
 				4A5F440B2D36FCE30017D4B2 /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */,
 				4A5F44112D3707FE0017D4B2 /* XCRemoteSwiftPackageReference "AnyCodable" */,
+				4A2A06F42D399E6800A2F135 /* XCRemoteSwiftPackageReference "ZippyJSON" */,
 			);
 			productRefGroup = F821C3B6208FCB5600F1F40A /* Products */;
 			projectDirPath = "";
@@ -510,6 +513,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4A2A06F42D399E6800A2F135 /* XCRemoteSwiftPackageReference "ZippyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/michaeleisel/ZippyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.15;
+			};
+		};
 		4A5F440B2D36FCE30017D4B2 /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-concurrency-extras";
@@ -529,6 +540,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4A2A06F52D399E6800A2F135 /* ZippyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A2A06F42D399E6800A2F135 /* XCRemoteSwiftPackageReference "ZippyJSON" */;
+			productName = ZippyJSON;
+		};
 		4A5F440C2D36FCE30017D4B2 /* ConcurrencyExtras */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4A5F440B2D36FCE30017D4B2 /* XCRemoteSwiftPackageReference "swift-concurrency-extras" */;
